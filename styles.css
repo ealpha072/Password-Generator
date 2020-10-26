@@ -11,6 +11,7 @@ body{
 	background-color: #23235b;
 	width: 45%;
 	margin:100px auto;
+	max-width: 100%;
 }
 
 .holder button{
