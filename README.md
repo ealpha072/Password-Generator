@@ -1,4 +1,4 @@
-# http
+#  https://ealpha072.github.io/password-generator/
 This programm randomly generates a password inline with instructions given
 
 ## Techs used:
