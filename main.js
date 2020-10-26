@@ -6,7 +6,6 @@ const lowercase = document.querySelector('#lowercase');
 const numbers = document.querySelector('#numbers');
 const symbolsEl = document.querySelector('#symbols');
 const generate = document.querySelector('#generate');
-
 const randomFunc = {
 	lower:randomLowerCase,
 	upper:randomUppercase,
@@ -16,8 +15,25 @@ const randomFunc = {
 
 //events 
 generate.addEventListener('click',(e)=>{
-	const passwordLen = 
+	const passwordLen = parseInt(length.value);
+	const hasLower = lowercase.checked;
+	const hasUpper = uppercase.checked;
+	const hasNum = numbers.checked;
+	const hasSymbol = symbolsEl.checked;
+
+	results.innerHTML = generatePassword(passwordLen,hasLower,hasUpper,hasNum,hasSymbol);
+
 })
+
+function generatePassword(len,l,u,n,s){
+	let generatedPassword=  '';
+	let checkCount = l+u+n+s;
+	
+	const typeArr = [{l},{u},{n},{s}];
+	let filteredArr = typeArr.filter(item=>Object.values(item)[0])
+
+	console.log(filteredArr);
+}
 
 //random uppercase,lowercase, symbols
 
