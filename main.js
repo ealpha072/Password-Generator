@@ -6,6 +6,7 @@ const lowercase = document.querySelector('#lowercase');
 const numbers = document.querySelector('#numbers');
 const symbolsEl = document.querySelector('#symbols');
 const generate = document.querySelector('#generate');
+
 const randomFunc = {
 	lower:randomLowerCase,
 	upper:randomUppercase,
@@ -15,41 +16,68 @@ const randomFunc = {
 
 //events 
 generate.addEventListener('click',(e)=>{
-	const passwordLen = parseInt(length.value);
+	const passwordLen = +length.value;
+	//console.log(typeof passwordLen);
 	const hasLower = lowercase.checked;
+	console.log(hasLower)
 	const hasUpper = uppercase.checked;
 	const hasNum = numbers.checked;
 	const hasSymbol = symbolsEl.checked;
 
-	results.innerHTML = generatePassword(passwordLen,hasLower,hasUpper,hasNum,hasSymbol);
+	//console.log(hasUpper, hasLower,hasSymbol,hasNum);
+
+	results.innerText = generatePassword(
+		hasLower,
+		hasUpper,
+		hasNum,
+		hasSymbol,
+		passwordLen);
 
 })
 
-function generatePassword(len,l,u,n,s){
-	let generatedPassword=  '';
-	let checkCount = l+u+n+s;
+function generatePassword(lower,upper,number,symbol,length){
+	let generatedPassword =  '';
+	let checkedCount = lower+upper+number+symbol;
 	
-	const typeArr = [{l},{u},{n},{s}];
-	let filteredArr = typeArr.filter(item=>Object.values(item)[0])
+	console.log(checkedCount);
 
-	console.log(filteredArr);
+	const typeArr = [{lower},{upper},{number},{symbol}].filter(item => Object.values(item)[0]);
+	console.log(typeArr);
+
+	if(checkedCount === 0){
+		return '';
+	}
+
+	for(let i = 0 ; i < length; i += checkedCount){
+		typeArr.forEach(type =>{
+			const funcName = Object.keys(type)[0];
+
+			console.log('funcname: ', funcName);
+			generatedPassword += randomFunc[funcName]();
+
+		})
+	}
+	console.log(generatedPassword);
+	const finalPass = generatedPassword.slice(0, length);
+	//console.log(finalPass);
+	return finalPass;
 }
 
 //random uppercase,lowercase, symbols
 
- function randomLowerCase(){
- 	let randomNum = Math.floor(Math.random()*26)+97;
- 	return String.fromCharCode(randomNum)
+function randomLowerCase(){
+ 	//let randomNum = Math.floor(Math.random()*26)+97;
+ 	return String.fromCharCode(Math.floor(Math.random()*26)+97)
 }
 
 function randomUppercase(){
-	let randomNum = Math.floor(Math.random()*26)+65;
-	return String.fromCharCode(randomNum)
+	//let randomNum = Math.floor(Math.random()*26)+65;
+	return String.fromCharCode( Math.floor(Math.random()*26)+65)
 }
 
 function randomNumber(){
-	let randomNum = Math.floor(Math.random()*10)+48;
-	return String.fromCharCode(randomNum)
+	//let randomNum = Math.floor(Math.random()*10)+48;
+	return String.fromCharCode(Math.floor(Math.random()*10)+48)
 }
 
 function randomSymbol(){
@@ -58,4 +86,4 @@ function randomSymbol(){
 	return randomSymbol;
 }
 
- //129 -- 154
+//console.log(randomUppercase()+randomLowerCase()+randomNumber()+randomSymbol())
