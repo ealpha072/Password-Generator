@@ -1,0 +1,52 @@
+
+*{
+	box-sizing: border-box;
+}
+html
+body{
+	background-color: #3b3b98;
+	color: white;
+}
+.holder{
+	background-color: #23235b;
+	width: 45%;
+	margin:100px auto;
+}
+
+.holder button{
+	margin: 20px auto;
+}
+
+.holder h2, .holder label{
+	color: white;
+}
+.result-container{
+	border: 1px solid black;
+	display: flex;
+	background-color: rgba(0,0,0,0.4);
+	justify-content: flex-start;
+	height: 50px;
+	width: 90%;
+	margin: 10px auto;
+	letter-spacing: 1px;
+	padding: 12px 10px;
+}
+.result-container #results{
+	word-wrap: break-word;
+	max-width: calc(100%-40px);
+}
+.result-container button{
+	border: none;
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	height: 40px;
+	width: 40px;
+	font-size: 20px;
+}
+.option{
+	justify-content: space-between;
+	display: flex;
+	margin: 15px 10px;
+	align-items: center;
+}
