@@ -4,7 +4,7 @@ This web application randomly generates a password inline with instructions give
 ## Techs used:
   * JS -logic
   * HTML -web page rendering
-  * CSS/Bootsrap -styling
+  * CSS/Bootsrap -website styling 
   
 ## Things learnt;
   * String.fromCharCode() function - to randomly generate letters or numbers.
