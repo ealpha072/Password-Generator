@@ -2,11 +2,13 @@
 *{
 	box-sizing: border-box;
 }
-html
+
+html,
 body{
 	background-color: #3b3b98;
 	color: white;
 }
+
 .holder{
 	background-color: #23235b;
 	width: 45%;
@@ -21,6 +23,7 @@ body{
 .holder h2, .holder label{
 	color: white;
 }
+
 .result-container{
 	border: 1px solid black;
 	display: flex;
@@ -32,10 +35,12 @@ body{
 	letter-spacing: 1px;
 	padding: 12px 10px;
 }
+
 .result-container #results{
 	word-wrap: break-word;
 	max-width: calc(100%-40px);
 }
+
 .result-container button{
 	border: none;
 	position: absolute;
@@ -45,6 +50,7 @@ body{
 	width: 40px;
 	font-size: 20px;
 }
+
 .option{
 	justify-content: space-between;
 	display: flex;
